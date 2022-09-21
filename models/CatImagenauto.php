@@ -40,8 +40,8 @@ class CatImagenauto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'img_id' => Yii::t('app', 'Id'),
-            'img_url' => Yii::t('app', 'Url'),
+            'img_id'     => Yii::t('app', 'Id'),
+            'img_url'    => Yii::t('app', 'Url'),
             'img_fkauto' => Yii::t('app', 'Auto'),
         ];
     }

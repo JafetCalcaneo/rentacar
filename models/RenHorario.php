@@ -43,10 +43,10 @@ class RenHorario extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'hor_id' => Yii::t('app', 'Id'),
-            'hor_horaInicio' => Yii::t('app', 'Hora Inicio'),
-            'hor_horaCierre' => Yii::t('app', 'Hora Cierre'),
-            'hor_estatus' => Yii::t('app', 'Estatus'),
+            'hor_id'          => Yii::t('app', 'Id'),
+            'hor_horaInicio'  => Yii::t('app', 'Hora Inicio'),
+            'hor_horaCierre'  => Yii::t('app', 'Hora Cierre'),
+            'hor_estatus'     => Yii::t('app', 'Estatus'),
             'hor_fkdiaSemana' => Yii::t('app', 'Dia Semana'),
         ];
     }

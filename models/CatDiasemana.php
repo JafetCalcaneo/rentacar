@@ -38,7 +38,7 @@ class CatDiasemana extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'sem_id' => Yii::t('app', 'Id'),
+            'sem_id'  => Yii::t('app', 'Id'),
             'sem_dia' => Yii::t('app', 'Dia'),
         ];
     }

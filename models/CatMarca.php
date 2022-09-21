@@ -38,7 +38,7 @@ class CatMarca extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'mar_id' => Yii::t('app', 'Id'),
+            'mar_id'     => Yii::t('app', 'Id'),
             'mar_nombre' => Yii::t('app', 'Marca'),
         ];
     }

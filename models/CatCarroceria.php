@@ -40,8 +40,8 @@ class CatCarroceria extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'car_id' => Yii::t('app', 'Id'),
-            'car_nombre' => Yii::t('app', 'Nombre'),
+            'car_id'       => Yii::t('app', 'Id'),
+            'car_nombre'   => Yii::t('app', 'Nombre'),
             'car_asientos' => Yii::t('app', 'Asientos'),
         ];
     }

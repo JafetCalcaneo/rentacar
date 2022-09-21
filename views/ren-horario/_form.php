@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'hor_horaInicio')->textInput() ?>
+    <?= $form->field($model, 'hor_horaInicio')->input('time') ?>
 
-    <?= $form->field($model, 'hor_horaCierre')->textInput() ?>
+    <?= $form->field($model, 'hor_horaCierre')->input('time') ?>
 
     <?= $form->field($model, 'hor_estatus')->textInput() ?>
 

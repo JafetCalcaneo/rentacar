@@ -21,6 +21,7 @@ use yii\bootstrap5\ActiveForm;
     <?= $form->field($model, 'aut_fkestatus')->textInput() ?>
 
     <?= $form->field($model, 'aut_fkimagen')->textInput() ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

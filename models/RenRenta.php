@@ -53,16 +53,16 @@ class RenRenta extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ren_id' => Yii::t('app', 'Id'),
-            'ren_fechaPago' => Yii::t('app', 'Fecha Pago'),
-            'ren_fechaInicio' => Yii::t('app', 'Fecha Inicio'),
-            'ren_fechaFinal' => Yii::t('app', 'Fecha Final'),
-            'ren_fechaEntregado' => Yii::t('app', 'Fecha Entregado'),
-            'ren_monto' => Yii::t('app', 'Monto'),
-            'ren_promocion' => Yii::t('app', 'Promocion'),
-            'ren_fkmetodoPago' => Yii::t('app', 'Metodo Pago'),
-            'ren_fkcliente' => Yii::t('app', 'Cliente'),
-            'ren_fkauto' => Yii::t('app', 'Auto'),
+            'ren_id'             => Yii::t('app', 'Id'),
+            'ren_fechaPago'      => Yii::t('app', 'Fecha de Pago'),
+            'ren_fechaInicio'    => Yii::t('app', 'Fecha de Inicio'),
+            'ren_fechaFinal'     => Yii::t('app', 'Fecha Final'),
+            'ren_fechaEntregado' => Yii::t('app', 'Fecha de Entregado'),
+            'ren_monto'          => Yii::t('app', 'Monto'),
+            'ren_promocion'      => Yii::t('app', 'Promoción'),
+            'ren_fkmetodoPago'   => Yii::t('app', 'Método de Pago'),
+            'ren_fkcliente'      => Yii::t('app', 'Cliente'),
+            'ren_fkauto'         => Yii::t('app', 'Auto'),
         ];
     }
 

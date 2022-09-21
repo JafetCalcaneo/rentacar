@@ -47,13 +47,13 @@ class RenPromocion extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'pro_id' => Yii::t('app', 'Id'),
+            'pro_id'          => Yii::t('app', 'Id'),
             'pro_descripcion' => Yii::t('app', 'Descripcion'),
-            'pro_imagen' => Yii::t('app', 'Imagen'),
+            'pro_imagen'      => Yii::t('app', 'Imagen'),
             'pro_fechaInicio' => Yii::t('app', 'Fecha Inicio'),
-            'pro_fechaFinal' => Yii::t('app', 'Fecha Final'),
-            'pro_descuento' => Yii::t('app', 'Descuento'),
-            'pro_fkauto' => Yii::t('app', 'Auto'),
+            'pro_fechaFinal'  => Yii::t('app', 'Fecha Final'),
+            'pro_descuento'   => Yii::t('app', 'Descuento'),
+            'pro_fkauto'      => Yii::t('app', 'Auto'),
         ];
     }
 

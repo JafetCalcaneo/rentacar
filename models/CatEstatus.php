@@ -38,7 +38,7 @@ class CatEstatus extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'est_id' => Yii::t('app', 'Id'),
+            'est_id'     => Yii::t('app', 'Id'),
             'est_nombre' => Yii::t('app', 'Estatus'),
         ];
     }

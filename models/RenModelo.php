@@ -50,12 +50,12 @@ class RenModelo extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'mod_id' => Yii::t('app', 'Id'),
-            'mod_nombre' => Yii::t('app', 'Nombre'),
-            'mod_anio' => Yii::t('app', 'Año'),
-            'mod_fkmarca' => Yii::t('app', 'Marca'),
+            'mod_id'            => Yii::t('app', 'Id'),
+            'mod_nombre'        => Yii::t('app', 'Nombre'),
+            'mod_anio'          => Yii::t('app', 'Año'),
+            'mod_fkmarca'       => Yii::t('app', 'Marca'),
             'mod_fktransmision' => Yii::t('app', 'Transmisión'),
-            'mod_fkcarroceria' => Yii::t('app', 'Carroceria'),
+            'mod_fkcarroceria'  => Yii::t('app', 'Carroceria'),
         ];
     }
 
