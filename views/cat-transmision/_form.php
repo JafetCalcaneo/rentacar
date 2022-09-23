@@ -1,5 +1,6 @@
 <?php
 
+use app\models\CatTransmision;
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 
@@ -12,7 +13,7 @@ use yii\bootstrap5\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'tra_nombre')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tra_nombre')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

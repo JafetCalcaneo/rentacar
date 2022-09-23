@@ -10,7 +10,7 @@ use app\models\CatTransmision;
 /* @var $searchModel app\models\CatTransmisionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cat Transmisions');
+$this->title = Yii::t('app', 'Transmisiónes');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-transmision-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Cat Transmision'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Transmisión'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

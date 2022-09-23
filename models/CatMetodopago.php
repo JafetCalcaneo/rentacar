@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "cat_metodopago".
@@ -17,6 +18,11 @@ class CatMetodopago extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public static function map(){
+        return ArrayHelper::map(self::find()->all(), 'met_id', 'met_nombre');
+    }
+
     public static function tableName()
     {
         return 'cat_metodopago';
@@ -28,6 +34,7 @@ class CatMetodopago extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['met_nombre'], 'required'],
             [['met_nombre'], 'string', 'max' => 30],
         ];
     }
@@ -39,7 +46,7 @@ class CatMetodopago extends \yii\db\ActiveRecord
     {
         return [
             'met_id'     => Yii::t('app', 'Id'),
-            'met_nombre' => Yii::t('app', 'Metodo'),
+            'met_nombre' => Yii::t('app', 'Método de pago'),
         ];
     }
 

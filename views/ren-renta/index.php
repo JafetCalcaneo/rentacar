@@ -10,7 +10,7 @@ use app\models\RenRenta;
 /* @var $searchModel app\models\RenRentaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ren Rentas');
+$this->title = Yii::t('app', 'Rentas');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ren-renta-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ren Renta'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Renta'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -35,11 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'ren_fechaInicio',
             'ren_fechaFinal',
             'ren_fechaEntregado',
-            //'ren_monto',
-            //'ren_promocion',
-            //'ren_fkmetodoPago',
-            //'ren_fkcliente',
-            //'ren_fkauto',
+            'ren_monto',
+            'ren_promocion',
+            'ren_fkmetodoPago',
+            'ren_fkcliente',
+            'ren_fkauto',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, RenRenta $model, $key, $index, $column) {

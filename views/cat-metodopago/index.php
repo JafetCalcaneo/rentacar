@@ -10,7 +10,7 @@ use app\models\CatMetodopago;
 /* @var $searchModel app\models\CatMetodopagoSerch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cat Metodopagos');
+$this->title = Yii::t('app', 'Métodos de pago');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-metodopago-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Cat Metodopago'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Método de pago'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

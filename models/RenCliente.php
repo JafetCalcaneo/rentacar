@@ -32,6 +32,7 @@ class RenCliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['cli_nombre','cli_paterno','cli_materno','cli_telefono','cli_fechaNacimiento'], 'required'],
             [['cli_fechaNacimiento'], 'safe'],
             [['cli_nombre', 'cli_paterno', 'cli_materno'], 'string', 'max' => 100],
             [['cli_telefono'], 'string', 'max' => 30],
@@ -44,12 +45,12 @@ class RenCliente extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'cli_id' => Yii::t('app', 'Id'),
-            'cli_nombre' => Yii::t('app', 'Nombre'),
-            'cli_paterno' => Yii::t('app', 'Paterno'),
-            'cli_materno' => Yii::t('app', 'Materno'),
-            'cli_telefono' => Yii::t('app', 'Telefono'),
-            'cli_fechaNacimiento' => Yii::t('app', 'Fecha Nacimiento'),
+            'cli_id'              => Yii::t('app', 'Id'),
+            'cli_nombre'          => Yii::t('app', 'Nombre'),
+            'cli_paterno'         => Yii::t('app', 'Paterno'),
+            'cli_materno'         => Yii::t('app', 'Materno'),
+            'cli_telefono'        => Yii::t('app', 'Teléfono'),
+            'cli_fechaNacimiento' => Yii::t('app', 'Fecha de Nacimiento'),
         ];
     }
 

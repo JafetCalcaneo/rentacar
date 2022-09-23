@@ -10,7 +10,7 @@ use app\models\RenCliente;
 /* @var $searchModel app\models\RenClienteSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ren Clientes');
+$this->title = Yii::t('app', 'Clientes');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ren-cliente-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ren Cliente'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Cliente'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'cli_paterno',
             'cli_materno',
             'cli_telefono',
-            //'cli_fechaNacimiento',
+            'cli_fechaNacimiento',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, RenCliente $model, $key, $index, $column) {

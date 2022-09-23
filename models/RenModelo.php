@@ -3,6 +3,9 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
+
+use function PHPSTORM_META\map;
 
 /**
  * This is the model class for table "ren_modelo".
@@ -24,6 +27,18 @@ class RenModelo extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public static function map(){
+        return ArrayHelper::map(self::find()->all(), 'mod_id', 'mod_nombre');
+     }
+     public static function mapTrans(){
+        return ArrayHelper::map(self::find()->all(), 'mod_id', 'mod_fktransmision');
+     }
+
+ 
+
+
+
     public static function tableName()
     {
         return 'ren_modelo';

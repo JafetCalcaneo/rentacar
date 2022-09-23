@@ -10,7 +10,7 @@ use app\models\RenModelo;
 /* @var $searchModel app\models\RenModeloSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ren Modelos');
+$this->title = Yii::t('app', 'Modelos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ren-modelo-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ren Modelo'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Modelos'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

@@ -44,12 +44,12 @@ class RenEmpleado extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'emp_id' => Yii::t('app', 'Id'),
-            'emp_nombre' => Yii::t('app', 'Nombre'),
+            'emp_id'      => Yii::t('app', 'Id'),
+            'emp_nombre'  => Yii::t('app', 'Nombre'),
             'emp_paterno' => Yii::t('app', 'Apellido Paterno'),
             'emp_materno' => Yii::t('app', 'Apellido Materno'),
-            'emp_cargo' => Yii::t('app', 'Cargo'),
-            'emp_fkuser' => Yii::t('app', 'Usuario'),
+            'emp_cargo'   => Yii::t('app', 'Cargo'),
+            'emp_fkuser'  => Yii::t('app', 'Usuario'),
         ];
     }
 

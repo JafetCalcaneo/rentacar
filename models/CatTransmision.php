@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "cat_transmision".
@@ -17,6 +18,11 @@ class CatTransmision extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public static function mapTrans(){
+        return ArrayHelper::map(self::find()->all(), 'tra_id', 'tra_nombre');
+     }
+
     public static function tableName()
     {
         return 'cat_transmision';
@@ -38,7 +44,7 @@ class CatTransmision extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'tra_id' => Yii::t('app', 'Id'),
+            'tra_id'     => Yii::t('app', 'Id'),
             'tra_nombre' => Yii::t('app', 'Transmisión'),
         ];
     }

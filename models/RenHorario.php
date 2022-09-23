@@ -31,6 +31,7 @@ class RenHorario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['hor_horaInicio', 'hor_horaCierre', 'hor_estatus', 'hor_fkdiaSemana'], 'required'],
             [['hor_horaInicio', 'hor_horaCierre'], 'safe'],
             [['hor_estatus', 'hor_fkdiaSemana'], 'integer'],
             [['hor_fkdiaSemana'], 'exist', 'skipOnError' => true, 'targetClass' => CatDiasemana::className(), 'targetAttribute' => ['hor_fkdiaSemana' => 'sem_id']],
@@ -44,10 +45,10 @@ class RenHorario extends \yii\db\ActiveRecord
     {
         return [
             'hor_id'          => Yii::t('app', 'Id'),
-            'hor_horaInicio'  => Yii::t('app', 'Hora Inicio'),
-            'hor_horaCierre'  => Yii::t('app', 'Hora Cierre'),
+            'hor_horaInicio'  => Yii::t('app', 'Hora de inicio'),
+            'hor_horaCierre'  => Yii::t('app', 'Hora de cierre'),
             'hor_estatus'     => Yii::t('app', 'Estatus'),
-            'hor_fkdiaSemana' => Yii::t('app', 'Dia Semana'),
+            'hor_fkdiaSemana' => Yii::t('app', 'Día de la semana'),
         ];
     }
 

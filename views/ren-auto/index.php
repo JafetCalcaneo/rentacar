@@ -10,7 +10,7 @@ use app\models\RenAuto;
 /* @var $searchModel app\models\RenAutoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Ren Autos');
+$this->title = Yii::t('app', 'Autos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ren-auto-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Ren Auto'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Auto'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

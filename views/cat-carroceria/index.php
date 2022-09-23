@@ -10,7 +10,7 @@ use app\models\CatCarroceria;
 /* @var $searchModel app\models\CatCarroceriaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cat Carrocerias');
+$this->title = Yii::t('app', 'Carrocerías');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-carroceria-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Cat Carroceria'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Carrocería'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

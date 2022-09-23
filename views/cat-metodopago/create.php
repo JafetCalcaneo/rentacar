@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CatMetodopago */
 
-$this->title = Yii::t('app', 'Create Cat Metodopago');
+$this->title = Yii::t('app', 'Crear Métodos de pago');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cat Metodopagos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

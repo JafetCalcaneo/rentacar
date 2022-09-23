@@ -10,7 +10,7 @@ use app\models\CatMarca;
 /* @var $searchModel app\models\CatMarcaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cat Marcas');
+$this->title = Yii::t('app', 'Marcas');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-marca-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Cat Marca'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Marca'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

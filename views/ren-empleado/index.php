@@ -5,11 +5,12 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use app\models\RenEmpleado;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RenEmpleadoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ren Empleados';
+$this->title = 'Empleados';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ren-empleado-index">
@@ -17,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Ren Empleado', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Empleado', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

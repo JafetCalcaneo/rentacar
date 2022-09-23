@@ -1,5 +1,9 @@
 <?php
 
+use app\models\CatCarroceria;
+use app\models\CatMarca;
+use app\models\CatTransmision;
+use app\models\RenModelo;
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 
@@ -16,11 +20,11 @@ use yii\bootstrap5\ActiveForm;
 
     <?= $form->field($model, 'mod_anio')->textInput() ?>
 
-    <?= $form->field($model, 'mod_fkmarca')->textInput() ?>
+    <?= $form->field($model, 'mod_fkmarca')->dropDownList(CatMarca::map(), ['prompt' => 'Seleccione la marca']) ?>
 
-    <?= $form->field($model, 'mod_fktransmision')->textInput() ?>
+    <?= $form->field($model, 'mod_fktransmision')->dropDownList(CatTransmision::mapTrans(), ['prompt' => 'Seleccione la transmisión']) ?>
 
-    <?= $form->field($model, 'mod_fkcarroceria')->textInput() ?>
+    <?= $form->field($model, 'mod_fkcarroceria')->dropDownList(CatCarroceria::map(), ['prompt' => 'Seleccione la carroceria']) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

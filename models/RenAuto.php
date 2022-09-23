@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "ren_auto".
@@ -25,6 +26,11 @@ class RenAuto extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    public static function map(){
+        return ArrayHelper::map(self::find()->all(), 'aut_id', 'aut_nombre');
+    }
+
     public static function tableName()
     {
         return 'ren_auto';
@@ -36,6 +42,7 @@ class RenAuto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['aut_color','aut_precio','aut_fkmodelo', 'aut_fkestatus', 'aut_fkimagen'], 'required'],
             [['aut_precio'], 'number'],
             [['aut_fkmodelo', 'aut_fkestatus', 'aut_fkimagen'], 'integer'],
             [['aut_color'], 'string', 'max' => 20],
@@ -51,12 +58,12 @@ class RenAuto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'aut_id' => Yii::t('app', 'Id'),
-            'aut_color' => Yii::t('app', 'Color'),
-            'aut_precio' => Yii::t('app', 'Precio'),
-            'aut_fkmodelo' => Yii::t('app', 'Modelo'),
+            'aut_id'        => Yii::t('app', 'Id'),
+            'aut_color'     => Yii::t('app', 'Color'),
+            'aut_precio'    => Yii::t('app', 'Precio'),
+            'aut_fkmodelo'  => Yii::t('app', 'Modelo'),
             'aut_fkestatus' => Yii::t('app', 'Estatus'),
-            'aut_fkimagen' => Yii::t('app', 'Imagen'),
+            'aut_fkimagen'  => Yii::t('app', 'Imagen'),
         ];
     }
 

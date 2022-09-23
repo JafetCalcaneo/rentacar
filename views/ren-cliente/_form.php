@@ -19,7 +19,7 @@ use yii\bootstrap5\ActiveForm;
 
     <?= $form->field($model, 'cli_telefono')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cli_fechaNacimiento')->textInput() ?>
+    <?= $form->field($model, 'cli_fechaNacimiento')->Input('date') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

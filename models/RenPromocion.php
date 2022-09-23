@@ -48,7 +48,7 @@ class RenPromocion extends \yii\db\ActiveRecord
     {
         return [
             'pro_id'          => Yii::t('app', 'Id'),
-            'pro_descripcion' => Yii::t('app', 'Descripcion'),
+            'pro_descripcion' => Yii::t('app', 'Descripción'),
             'pro_imagen'      => Yii::t('app', 'Imagen'),
             'pro_fechaInicio' => Yii::t('app', 'Fecha Inicio'),
             'pro_fechaFinal'  => Yii::t('app', 'Fecha Final'),
