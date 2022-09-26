@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\RenRenta;
 use app\models\RenRentaSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

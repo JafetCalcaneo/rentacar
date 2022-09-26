@@ -4,7 +4,8 @@ return [
     'Crear' => 'Create',
     'Fecha de pago' => 'Date',
     'Guardar' => 'Save',
-    // 'Precio' => 'Price',
+    'Precio' => 'Price',
+    'Modelos' => 'Model',
 ];
 
 ?>
