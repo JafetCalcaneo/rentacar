@@ -30,47 +30,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <?php $this->beginBody()?>
 
 <header id="header">
-    <?php
-NavBar::begin([
-    'brandLabel' => Yii::$app->name,
-    'brandUrl' => Yii::$app->homeUrl,
-    'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top'],
-]);
-
-$default  = Yii::$app->session->get('language', 'en-US');
-$language = $default == 'en-US' ? 'es-INGLES' : 'en-US';
-$bandera  = Yii::$app->params['languages'][$language];
-
-echo Nav::widget([
-    'encodeLabels' => false,
-    'options' => ['class' => 'navbar-nav'],
-    'items' => [
-        ['label' => 'Carrocería', 'url' => ['/cat-carroceria/index']],
-        ['label' => 'Estatus', 'url' => ['/cat-estatus/index']],
-        ['label' => 'Imágenes', 'url' => ['/cat-imagenauto/index']],
-        ['label' => 'Marca', 'url' => ['/cat-marca/index']],
-        ['label' => 'Método de Pago', 'url' => ['/cat-metodopago/index']],
-        ['label' => 'Transmisión', 'url' => ['/cat-transmision/index']],
-        ['label' => 'Autos', 'url' => ['/ren-auto/index']],
-        ['label' => 'Cliente', 'url' => ['/ren-cliente/index']],
-        ['label' => 'Modelo', 'url' => ['/ren-modelo/index']],
-        ['label' => 'Promoción', 'url' => ['/ren-promocion/index']],
-        ['label' => 'Renta', 'url' => ['/ren-renta/index']],
-        ['label' => $bandera, 'url' => ['/site/language', 'language' => $language]],
-        Yii::$app->user->isGuest
-        ? ['label' => 'Login', 'url' => ['/site/login']]
-        : '<li class="nav-item">'
-        . Html::beginForm(['/site/logout'])
-        . Html::submitButton(
-            'Logout (' . Yii::$app->user->identity->username . ')',
-            ['class' => 'nav-link btn btn-link logout']
-        )
-        . Html::endForm()
-        . '</li>',
-    ],
-]);
-NavBar::end();
-?>
+    <?= $this->render('navbar')?>
 </header>
 
 <main id="main" class="flex-shrink-0" role="main">
@@ -78,18 +38,13 @@ NavBar::end();
         <?php if (!empty($this->params['breadcrumbs'])): ?>
             <?=Breadcrumbs::widget(['links' => $this->params['breadcrumbs']])?>
         <?php endif?>
-        <?=Alert::widget()?>
+        <?//=Alert::widget()?>
         <?=$content?>
     </div>
 </main>
 
 <footer id="footer" class="mt-auto py-3 bg-light">
-    <div class="container">
-        <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?=date('Y')?></div>
-            <div class="col-md-6 text-center text-md-end"><?=Yii::powered()?></div>
-        </div>
-    </div>
+    <?= $this->render('footer')?>
 </footer>
 
 <?php $this->endBody()?>

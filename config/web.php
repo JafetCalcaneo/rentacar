@@ -5,10 +5,10 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'renta',
-    'basePath' => dirname(__DIR__),
-    'language' => 'en-US',
+    'name' => 'Renta',
+    'language' => 'en-USA',
     'timezone' => 'America/Mexico_City',
-    'name' => 'renta',
+    'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -76,7 +76,7 @@ $config = [
 
     'params' => $params,
     'on beforeRequest' => function ($event) {
-        Yii::$app->language = Yii::$app->session->get('language', 'en-US');
+        Yii::$app->language = Yii::$app->session->get('language', 'en-USA');
     },
 
 ];

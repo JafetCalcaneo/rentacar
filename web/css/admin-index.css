@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+body {
+    margin: 0;
+    /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);   */
+    background: #B2EBF2; 
+    /* background: #550527; */
+}
+
+main {
+    width: 90%;
+    margin: 200px auto auto auto; 
+    /* border: 2px solid black; */
+}
+
+main > h1 {
+margin: auto;
+width: 30%;
+
+}
+.content {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    flex-wrap: wrap;
+}
+
+.model-content {
+    /* border: 1px solid gray; */
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+    align-items: flex-end;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+.model-content-text {
+    height: 300px;
+    display: flex;
+    flex-direction: column;    
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.model-content-text h1 {
+    font-family: Lato;
+    font-size: 80px;
+    margin: 125px 0 0px 0;
+    padding-bottom: 2px;
+}
+
+.model-content-text p {
+    font-size: 25px;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: 'Didact Gothic';
+
+}
+
+
+
+.model-content:hover {
+    transition: 0.7s;
+    transform:  scale(1.030);
+    cursor: pointer;
+
+}
+
+#renta {
+    background: url("../img/renta-red.jpg");
+    background-size: 582px 302px;
+    color: #020;
+}
+
+#cliente {
+    background: url("../img/cliente.jpg");
+    /* linear-gradient(to right, rgba(235, 197, 197, 0.6), rgba(140, 126, 126, 0.5)) */
+    background-size: 402px 302px;
+    color: #020;
+}
+
+#auto {
+    background: url("../img/auto.jpg");
+    background-size: 402px 302px;
+    background-position: center;
+    color: #020;
+}
+
+#modelo {
+    background: url("../img/modelo3.jpg");
+    background-size: 452px 362px;
+    background-position-y: 0px;
+    background-position: bottom;    
+    color: #FFF;
+}
+
+#empleado {
+    background: url("../img/empleado.jpg");
+    background-size: 402px 302px;
+    background-position: center;
+    color: #020;
+}
+
+#metodo {
+    background: url("../img/metodo.jpg");
+    background-size: 402px 302px;
+    background-position: center;
+    color: #FFF;
+}
+
+#marca {
+    background: url("../img/marca2.jpg");
+    background-size: 402px 302px;
+    background-position: center;
+    color: #FFF;
+}
+
+#horario {
+    background: url("../img/horario.jpg");
+    background-size: 402px 302px;
+    background-position: bottom;   
+    color: #020;
+}
+
+.btn-model {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+}
+.carousel-inner >.item > img { object-fit: scale-down; height: 50vh; width: 100%; }
