@@ -37,7 +37,7 @@ class RenBanner extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ban_id'          => Yii::t('app', 'Id'),
+            'ban_id'          => Yii::t('app', 'Prueba id'),
             'ban_url'         => Yii::t('app', 'Banner'),
             'ban_descripcion' => Yii::t('app', 'Descripcion'),
         ];
