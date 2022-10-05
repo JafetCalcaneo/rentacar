@@ -21,32 +21,37 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link rel="shortcut icon" href="../../web/img/coche.png" />
 </head>
+
 <body class="d-flex flex-column h-100">
-<?php $this->beginBody() ?>
+    <?php $this->beginBody() ?>
 
-<header id="header">    
-    <?= $this->render('navbar') ?> 
-    
-</header>
+    <header id="header">
+        <?= $this->render('navbar') ?>
 
-<main id="main" class="flex-shrink-0" role="main">
-<?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+    </header>
+
+    <main id="main" class="flex-shrink-0" role="main">
+        <?php if (!empty($this->params['breadcrumbs'])) : ?>
+            <?= Breadcrumbs::widget([
+                'homeLink' => ['label' => Yii::t('app', 'Inicio'), 'url' => '/site/index'],
+                'links' => $this->params['breadcrumbs'],
+            ]) ?>
         <?php endif ?>
         <?= $content ?>
-    <!--  -->
-</main>
+    </main>
 
-<footer id="footer" class="mt-auto py-3 bg-light">
-    <?= $this->render('footer') ?>
-</footer>
+    <footer id="footer" class="mt-auto py-3 bg-light">
+        <?= $this->render('footer') ?>
+    </footer>
 
-<?php $this->endBody() ?>
+    <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage() ?>

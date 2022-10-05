@@ -18,7 +18,7 @@ class CatImagenautoSearch extends CatImagenauto
     {
         return [
             [['img_id', 'img_fkauto'], 'integer'],
-            [['img_url'], 'safe'],
+            [['img_url', 'img_titulo', 'img_descripcion', 'img_seccion', 'img_estatus', 'img_href'], 'safe'],
         ];
     }
 
@@ -62,7 +62,12 @@ class CatImagenautoSearch extends CatImagenauto
             'img_fkauto' => $this->img_fkauto,
         ]);
 
-        $query->andFilterWhere(['like', 'img_url', $this->img_url]);
+        $query->andFilterWhere(['like', 'img_url', $this->img_url])
+            ->andFilterWhere(['like', 'img_titulo', $this->img_titulo])
+            ->andFilterWhere(['like', 'img_descripcion', $this->img_descripcion])
+            ->andFilterWhere(['like', 'img_seccion', $this->img_seccion])
+            ->andFilterWhere(['like', 'img_estatus', $this->img_estatus])
+            ->andFilterWhere(['like', 'img_href', $this->img_href]);
 
         return $dataProvider;
     }
