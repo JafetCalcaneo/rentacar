@@ -6,11 +6,7 @@ body {
     /* background: #550527; */
 }
 
-main {
-    width: 90%;
-    margin: 200px auto auto auto; 
-    /* border: 2px solid black; */
-}
+
 
 main > h1 {
 margin: auto;

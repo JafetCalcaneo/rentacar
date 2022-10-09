@@ -83,7 +83,7 @@ class SiteController extends Controller
         $banners = RenBanner::find()->All();
         $items = [];
         foreach ($banners as $ban => $banner) {
-            $items[] = Html::img($banner->ban_url, ['width' => '100%']);
+            $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
         }
         return $this->render('index', compact('items', 'servicios', 'buscados'));
     }
