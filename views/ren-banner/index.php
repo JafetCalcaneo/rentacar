@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use app\models\RenBanner;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RenBannerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */

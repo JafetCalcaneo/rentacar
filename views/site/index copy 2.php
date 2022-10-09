@@ -3,14 +3,11 @@
 use yii\widgets\ListView;
 use yii\bootstrap5\Carousel;
 ?>
-
 <div class="banner">
     <?= Carousel::widget([
         'items' => $items
     ]) ?>
 </div>
-
-
 <h1>NUESTROS SERVICIOS</h1>
 <br>
 

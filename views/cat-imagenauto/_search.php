@@ -22,7 +22,20 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'img_url') ?>
 
-    <?= $form->field($model, 'img_fkauto') ?>
+    <?= $form->field($model, 'img_titulo') ?>
+
+    <?= $form->field($model, 'img_descripcion') ?>
+
+    <?= $form->field($model, 'img_seccion') ?>
+
+    <?php // echo $form->field($model, 'img_estatus') 
+    ?>
+
+    <?php // echo $form->field($model, 'img_href') 
+    ?>
+
+    <?php // echo $form->field($model, 'img_fkauto') 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
