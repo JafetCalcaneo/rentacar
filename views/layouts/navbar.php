@@ -16,7 +16,7 @@ use yii\helpers\Html;
         'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            
+            ['label' => 'Autos', 'url' => ['/ren-auto/catalogo-autos']],
             ['label' => 'Volver', 'url' => ['/site/index']],
             [
                 'label' => 'Ajustes',
@@ -25,6 +25,7 @@ use yii\helpers\Html;
                      ['label' => 'Crear', 'url' => '/ren-renta/create'],
                 ],
             ],
+            
            
             
             ['label' => $bandera, 'url' => ['/site/language', 'language' => $language]],

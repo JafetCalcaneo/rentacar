@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\RenAuto;
 use app\models\RenAutoSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -130,5 +131,9 @@ class RenAutoController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    public function actionCatalogoAutos(){
+        return $this->render('catalogo-autos');
     }
 }

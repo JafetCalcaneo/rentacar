@@ -14,15 +14,15 @@ use yii\bootstrap5\Carousel;
 <h1>NUESTROS SERVICIOS</h1>
 <br>
 
-<div class="d-flex">
+<!-- <div class="d-flex"> -->
     <?= ListView::widget([
         'dataProvider' => $servicios,
-        'layout' => "<div class='d-flex'>{items}</div>",
+        // 'layout' => "<div class='d-flex'>{items}</div>", 
         'options' => [
             'tag' => 'div',
-            'class' => 'col-md-4',
-            'id' => 'list-wrapper',
+            'class' => 'servicios-content',
+            // 'id' => 'list-wrapper',
         ],
         'itemView' => '/cat-imagenauto/imagenes_list',
     ]); ?>
-</div>
+<!-- </div> -->
