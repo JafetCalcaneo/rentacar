@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+body {
+    background: #D1CCDC;
+}
+.principal {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    
+}
+
+.car-image {
+    margin: auto;
+}
+
+.info {
+    display: flex;
+    margin: auto;
+    margin-top: 90px;
+    width: 1000px;
+    justify-content: space-between;
+    font-size: 1em;
+    font-family: Lato;
+}
+
+.car-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+}
+
+.car-info h1 {
+    font-size: 2rem;
+}
+.car-info div {
+    margin: 10px 20px 10px 20px;
+}
+
+.car-info img {
+    width: 50px;
+    height: 50px;
+}
+
+.car-info strong {
+    border-radius: 4px;
+    margin-left: 90px;
+    background: #B39DDB;
+    padding: 5px;
+    box-shadow: 4px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.car-info span {
+    border-radius: 4px;
+    margin-left: 90px;
+    background: #E9B872;
+    padding: 5px;
+    box-shadow: 4px 3px 2px rgba(0, 0, 0, 0.5);
+}
+
+.info-seccion {
+    display: flex;
+}
+
+.inputs form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+}
+
+.inputs form * {
+    margin: 10px 20px 10px 20px;
+}
+
+.inputs input {
+    width: 12rem;
+    height: 2rem;
+    margin-top: 0px;
+}
+
+#input-rent{
+    background: #90A959;
+    border-radius: 4px;
+    
+}
+
+#input-rent:hover{
+    transform: scale(1.065);
+    transition: 0.5s;
+}

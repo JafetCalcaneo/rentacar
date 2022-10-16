@@ -2,9 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\CatImagenauto;
 use app\models\RenAuto;
+use app\models\RenModelo;
 use app\models\RenAutoSearch;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,6 +40,7 @@ class RenAutoController extends Controller
      *
      * @return string
      */
+    //--------------------VISTA DE
     public function actionIndex()
     {
         $searchModel = new RenAutoSearch();
@@ -53,14 +57,15 @@ class RenAutoController extends Controller
      * @param int $aut_id Id
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($aut_id)
+     */ 
+     public function actionView($aut_id)
     {
         return $this->render('view', [
             'model' => $this->findModel($aut_id),
         ]);
     }
-
+  
+    
     /**
      * Creates a new RenAuto model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -133,7 +138,35 @@ class RenAutoController extends Controller
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 
-    public function actionCatalogoAutos(){
-        return $this->render('catalogo-autos');
+    //----------------------VISTA DETALLADA DEL AUTO----------------------
+    public function actionAutoView($id = 0){
+        $query = RenAuto::find()->where(['aut_id' => $id]);
+        $auto = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => false,
+        ]);
+        return $this->render('auto/imagenes_list', compact('auto'));
     }
+
+    //----------------------VISTA CATALOGO DE AUTOS----------------------
+
+    public function actionCatalogoView(){
+        $queryImagen = CatImagenauto::find()->where(['img_seccion' => 'Autos', 'img_estatus' => '1']);
+        $imagenAuto = new ActiveDataProvider([
+            'query' => $queryImagen,
+            'pagination' => false,
+        ]);
+
+        $datosAuto = RenAuto::find();
+        $auto = new ActiveDataProvider([
+            'query' => $datosAuto,
+            'pagination' => false,
+            'sort' => false,
+            
+        ]);
+        return $this->render('catalogo/catalogo_list', compact('auto', 'imagenAuto'));
+    }
+    
+
+
 }

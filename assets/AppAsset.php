@@ -24,6 +24,8 @@ class AppAsset extends AssetBundle
         'css/prueba.css',
         'css/admin-index.css',
         'css/cliente-index.css',
+        'css/cliente-carview.css',
+        'css/catalogo-view.css',
     ];
     public $js = [
     ];

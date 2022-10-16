@@ -13,6 +13,7 @@ use yii\filters\VerbFilter;
 use app\models\CatImagenauto;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
+use kartik\mpdf\Pdf;
 
 
 class SiteController extends Controller
@@ -32,7 +33,7 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
+                ], 
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
@@ -58,7 +59,7 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    //----------------------------VISTA DEL INDEX----------------------------------
     /**
      * Displays homepage.
      *
@@ -74,12 +75,7 @@ class SiteController extends Controller
             'query' => CatImagenauto::find()->where(['img_seccion' => 'Masrentados', 'img_estatus' => '1']),
             'pagination' => false,
         ]);
-        /* echo '<pre>';
-            var_dump($dataProvider->models);
-            echo '</pre>';
-            die(); */
-        /*  $this->view->title = 'Posts List';
-            return $this->render('list', ['listDataProvider' => $dataProvider]); */
+        
         $banners = RenBanner::find()->All();
         $items = [];
         foreach ($banners as $ban => $banner) {
@@ -88,6 +84,9 @@ class SiteController extends Controller
         return $this->render('index', compact('items', 'servicios', 'buscados'));
     }
 
+    
+
+    
     /**
      * Login action.
      *
@@ -156,4 +155,12 @@ class SiteController extends Controller
         header('location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
+
+    
 }
+
+  
+
+    
+    
+

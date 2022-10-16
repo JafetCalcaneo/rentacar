@@ -64,6 +64,13 @@ class RenAuto extends \yii\db\ActiveRecord
             'aut_fkmodelo'  => Yii::t('app', 'Modelo'),
             'aut_fkestatus' => Yii::t('app', 'Estatus'),
             'aut_fkimagen'  => Yii::t('app', 'Imagen'),
+            'modNombre'     => Yii::t('app', 'Modelo'),
+            'estatus'       => Yii::t('app', 'Modelo'),
+            'Imagen'        => Yii::t('app', 'Modelo'),
+            'Href'          => Yii::t('app', 'Href'),
+            'Anio'          => Yii::t('app', 'Anio'),
+            'transmision'   => Yii::t('app', 'Transmision'),
+
         ];
     }
 
@@ -116,4 +123,38 @@ class RenAuto extends \yii\db\ActiveRecord
     {
         return $this->hasMany(RenRenta::className(), ['ren_fkauto' => 'aut_id']);
     }
+    
+    //---------------LLAMADAS A TABLA MODELO---------------------------
+    public function getModNombre(){
+        return $this->autFkmodelo->mod_nombre;
+    }
+
+    public function getAnio(){
+        return $this->autFkmodelo->mod_anio;
+    }
+
+    public function getTransmision(){
+        return $this->autFkmodelo->transmision;
+    }
+
+    //---------------LLAMADAS A TABLA IMAGENES---------------------------
+    public function getHref(){
+        return $this->autFkimagen->img_href;
+    }
+
+    public function getImagen(){
+        return $this->autFkimagen->img_url;
+    }
+
+    public function getEstatus(){
+        return $this->autFkestatus->est_nombre;
+    }
+
+    
+
+    
+
+    
+
+        
 }

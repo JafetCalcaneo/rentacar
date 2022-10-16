@@ -16,7 +16,7 @@ use yii\helpers\Html;
         'encodeLabels' => false,
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Autos', 'url' => ['/ren-auto/catalogo-autos']],
+            ['label' => 'Autos', 'url' => ['/ren-auto/auto-view']],
             ['label' => 'Volver', 'url' => ['/site/index']],
             [
                 'label' => 'Ajustes',

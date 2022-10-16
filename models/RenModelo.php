@@ -7,7 +7,7 @@ use yii\helpers\ArrayHelper;
 
 use function PHPSTORM_META\map;
 
-/**
+/** 
  * This is the model class for table "ren_modelo".
  *
  * @property int $mod_id Id
@@ -71,6 +71,8 @@ class RenModelo extends \yii\db\ActiveRecord
             'mod_fkmarca'       => Yii::t('app', 'Marca'),
             'mod_fktransmision' => Yii::t('app', 'Transmisión'),
             'mod_fkcarroceria'  => Yii::t('app', 'Carroceria'),
+            'modNombre'         => Yii::t('app', 'Nombre'),
+            'transmision'       => Yii::t('app', 'Transmisión'),    
         ];
     }
 
@@ -112,5 +114,12 @@ class RenModelo extends \yii\db\ActiveRecord
     public function getRenAutos()
     {
         return $this->hasMany(RenAuto::className(), ['aut_fkmodelo' => 'mod_id']);
+    }
+    public function getModNombre(){
+        return $this->autFkmodelo->mod_nombre;
+    }
+
+    public function getTransmision(){
+        return $this->modFktransmision->tra_nombre;
     }
 }
