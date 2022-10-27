@@ -6,6 +6,7 @@ return [
     'Guardar' => 'Save',
     'Precio' => 'Price',
     'Modelos' => 'Model',
+    'Usuarios' => 'Users',
 ];
 
 ?>

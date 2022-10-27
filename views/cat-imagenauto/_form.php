@@ -24,7 +24,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'img_href')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img_fkauto')->textInput() ?>
+    <!-- <?= $form->field($model, 'img_fkauto')->textInput() ?> -->
+    
+
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

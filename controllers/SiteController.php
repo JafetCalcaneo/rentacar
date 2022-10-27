@@ -24,22 +24,8 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ], 
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
             ],
         ];
     }
@@ -67,6 +53,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isSuperAdmin) {
+        return $this->render('admin/index-item');
+        } else {
         $servicios = new ActiveDataProvider([
             'query' => CatImagenauto::find()->where(['img_seccion' => 'Servicios', 'img_estatus' => '1']),
             'pagination' => false,
@@ -75,18 +64,19 @@ class SiteController extends Controller
             'query' => CatImagenauto::find()->where(['img_seccion' => 'Masrentados', 'img_estatus' => '1']),
             'pagination' => false,
         ]);
-        
+
         $banners = RenBanner::find()->All();
         $items = [];
         foreach ($banners as $ban => $banner) {
             $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
         }
         return $this->render('index', compact('items', 'servicios', 'buscados'));
+        }
     }
 
-    
 
-    
+
+
     /**
      * Login action.
      *
@@ -155,12 +145,4 @@ class SiteController extends Controller
         header('location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
-
-    
 }
-
-  
-
-    
-    
-

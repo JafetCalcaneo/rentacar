@@ -22,18 +22,13 @@ class RenAutoController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
+
 
     /**
      * Lists all RenAuto models.
@@ -57,15 +52,15 @@ class RenAutoController extends Controller
      * @param int $aut_id Id
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
-     */ 
-     public function actionView($aut_id)
+     */
+    public function actionView($aut_id)
     {
         return $this->render('view', [
             'model' => $this->findModel($aut_id),
         ]);
     }
-  
-    
+
+
     /**
      * Creates a new RenAuto model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -139,7 +134,8 @@ class RenAutoController extends Controller
     }
 
     //----------------------VISTA DETALLADA DEL AUTO----------------------
-    public function actionAutoView($id = 0){
+    public function actionAutoView($id = 0)
+    {
         $query = RenAuto::find()->where(['aut_id' => $id]);
         $auto = new ActiveDataProvider([
             'query' => $query,
@@ -150,7 +146,8 @@ class RenAutoController extends Controller
 
     //----------------------VISTA CATALOGO DE AUTOS----------------------
 
-    public function actionCatalogoView(){
+    public function actionCatalogoItem()
+    {
         $queryImagen = CatImagenauto::find()->where(['img_seccion' => 'Autos', 'img_estatus' => '1']);
         $imagenAuto = new ActiveDataProvider([
             'query' => $queryImagen,
@@ -162,11 +159,8 @@ class RenAutoController extends Controller
             'query' => $datosAuto,
             'pagination' => false,
             'sort' => false,
-            
+
         ]);
         return $this->render('catalogo/catalogo_list', compact('auto', 'imagenAuto'));
     }
-    
-
-
 }

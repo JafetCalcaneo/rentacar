@@ -10,7 +10,7 @@ use app\models\CatImagenauto;
 /* @var $searchModel app\models\CatImagenautoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cat Imagenautos');
+$this->title = Yii::t('app', 'Imagenautos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cat-imagenauto-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Cat Imagenauto'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Imagen auto'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>

@@ -20,6 +20,11 @@ use Yii;
  */
 class CatImagenauto extends \yii\db\ActiveRecord
 {
+
+    // public static function map(){
+    //     return ArrayHelper::map(self::find()->all(), 'mod_id', 'mod_nombre');
+    //  }
+
     /**
      * {@inheritdoc}
      */

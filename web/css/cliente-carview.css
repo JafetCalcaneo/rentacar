@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
 
 body {
-    background: #D1CCDC;
+    /* background: #D1CCDC; */
+    background-color: #FFF;
 }
+
+.banner {
+    width: 80%;
+}
+
+.banner-flex {
+    display: flex;
+    justify-content: center;
+}
+
 .principal {
     display: flex;
     flex-direction: column;

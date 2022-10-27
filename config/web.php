@@ -23,9 +23,13 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
+            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+            // Comment this if you don't want to record user logins
+            'on afterLogin' => function($event) {
+            \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
+            }
+            ],
+            
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -84,9 +88,30 @@ $config = [
         
     ],
     'params' => $params,
-    'on beforeRequest' => function ($event) {
-        Yii::$app->language = Yii::$app->session->get('language', 'en-US');
+    'modules'=>[
+        'user-management' => [
+        'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+        // 'enableRegistration' => true,
+        // Add regexp validation to passwords. Default pattern does not restrict user and can enter any set of characters.
+        // The example below allows user to enter :
+        // any set of characters
+        // (?=\S{8,}): of at least length 8
+        // (?=\S*[a-z]): containing at least one lowercase letter
+        // (?=\S*[A-Z]): and at least one uppercase letter
+        // (?=\S*[\d]): and at least one number
+        // $: anchored to the end of the string
+        //'passwordRegexp' => '^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$',
+        // Here you can set your handler to change layout for any controller or action
+        // Tip: you can use this event in any module
+        'on beforeAction'=>function(yii\base\ActionEvent $event) {
+        if ( $event->action->uniqueId == 'user-management/auth/login' )
+        {
+        $event->action->controller->layout = 'loginLayout.php';
+        };
         },
+        ],
+        ],
+        
 ];
 
 if (YII_ENV_DEV) {
