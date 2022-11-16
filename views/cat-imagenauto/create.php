@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CatImagenauto */
 
-$this->title = Yii::t('app', 'Create Cat Imagenauto');
+$this->title = Yii::t('app', 'Crear Imagen  auto');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cat Imagenautos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

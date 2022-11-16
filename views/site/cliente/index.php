@@ -20,6 +20,6 @@ use yii\bootstrap5\Carousel;
             'class' => 'servicios-content',
             // 'id' => 'list-wrapper',
         ],
-        'itemView' => '/cat-imagenauto/imagenes_list',
+        'itemView' => 'imagenes_list',
         'summary' => false,
     ]); ?>

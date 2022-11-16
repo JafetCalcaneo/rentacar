@@ -3,17 +3,19 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "cat_imagenauto".
  *
  * @property int $img_id Id
- * @property string $img_url Url
- * @property string $img_titulo Titulo
+ * @property string $img_imagen Imagen
  * @property string $img_descripcion Descripción
+ * @property string $img_titulo Titulo
  * @property string $img_seccion Sección
- * @property string $img_estatus Estatus
+ * @property string $img_url Url
  * @property string $img_href Href
+ * @property string $img_estatus Estatus
  * @property int $img_fkauto Auto
  *
  * @property RenAuto[] $renAutos
@@ -21,9 +23,8 @@ use Yii;
 class CatImagenauto extends \yii\db\ActiveRecord
 {
 
-    // public static function map(){
-    //     return ArrayHelper::map(self::find()->all(), 'mod_id', 'mod_nombre');
-    //  }
+    public $archivo_imagen;
+    public $lista_roles;
 
     /**
      * {@inheritdoc}
@@ -39,9 +40,13 @@ class CatImagenauto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['img_url', 'img_titulo', 'img_descripcion', 'img_seccion', 'img_estatus', 'img_href', 'img_fkauto'], 'required'],
+            [['img_descripcion', 'img_titulo', 'img_seccion', 'img_url', 'img_href', 'img_estatus'], 'required'],
             [['img_fkauto'], 'integer'],
-            [['img_url', 'img_titulo', 'img_descripcion', 'img_seccion', 'img_estatus', 'img_href'], 'string', 'max' => 255],
+            [['img_imagen'], 'unique'],
+            [['img_imagen', 'img_descripcion', 'img_titulo', 'img_seccion', 'img_url', 'img_href', 'img_estatus'], 'string', 'max' => 255],
+            [['archivo_imagen'], 'safe'],
+            [['archivo_imagen'], 'file', 'extensions' => 'jpg'],
+            [['archivo_imagen'], 'file', 'maxSize' => '10000000'],
         ];
     }
 
@@ -51,16 +56,31 @@ class CatImagenauto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'img_id' => Yii::t('app', 'Id'),
-            'img_url' => Yii::t('app', 'Url'),
-            'img_titulo' => Yii::t('app', 'Titulo'),
+            'img_id'          => Yii::t('app', 'Id'),
+            'img_imagen'      => Yii::t('app', 'Imagen'),
             'img_descripcion' => Yii::t('app', 'Descripción'),
-            'img_seccion' => Yii::t('app', 'Sección'),
-            'img_estatus' => Yii::t('app', 'Estatus'),
-            'img_href' => Yii::t('app', 'Href'),
-            'img_fkauto' => Yii::t('app', 'Auto'),
+            'img_titulo'      => Yii::t('app', 'Titulo'),
+            'img_seccion'     => Yii::t('app', 'Sección'),
+            'img_url'         => Yii::t('app', 'Url'),
+            'img_href'        => Yii::t('app', 'Href'),
+            'img_estatus'     => Yii::t('app', 'Estatus'),
+            'img_fkauto'      => Yii::t('app', 'Auto'),
+            'archivo_imagen'  => Yii::t('app', 'Imagen'),
         ];
     }
+
+    public function getImg() {
+        return Html::img(
+        "/img/{$this->img_url}",
+        ['alt' => Yii::t('app', $this->img_titulo), 'style' => 'width: 70%;']
+        );
+        }
+
+        public function getSta() {
+            $texto = $this->img_estatus == 1 ? 'Disponible' : 'Ocupado';
+            $color = $this->img_estatus == 1 ? 'success' : 'default';
+            return Html::button($texto, ['class' => "btn btn-{$color}", 'style' => 'width: 100%;']);
+            }
 
     /**
      * Gets query for [[RenAutos]].
@@ -69,6 +89,6 @@ class CatImagenauto extends \yii\db\ActiveRecord
      */
     public function getRenAutos()
     {
-        return $this->hasMany(RenAuto::className(), ['aut_fkimagen' => 'img_id']);
+        return $this->hasMany(RenAuto::class, ['aut_fkimagen' => 'img_id']);
     }
 }

@@ -6,7 +6,8 @@ use yii\helpers\Url;
 ?>
 <div class="principal">
     <div class="car-image">
-        <img src=<?= $model->Imagen ?> alt="Auto banner">
+        <!-- <img src=<?= $model->Imagen ?> alt="Auto banner"> -->
+        <img src=<?=$model->Imagen?> alt="Auto banner">
     </div>
     <div class="info">
         <div class="car-info">

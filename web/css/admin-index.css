@@ -67,7 +67,7 @@ a{
 }
 
 #renta {
-    background: url("../img/renta.jpg");
+    /* background: url("../img/renta.jpg"); */
     background-size: 582px 302px;
     color: #020;
 }

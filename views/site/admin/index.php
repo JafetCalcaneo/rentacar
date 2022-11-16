@@ -3,15 +3,14 @@ use yii\bootstrap5\Html;
 use yii\widgets\ListView;
 ?>
 
+<h1>Tablas y formularios</h1>
 <?= 
 ListView::widget([
-    'dataProvider' => $auto,
+    'dataProvider' => $img_dashboard,
     'options' => [
-        'tag' => 'div',
-        'class' => 'd-flex',
-        
+        'class' => 'content',
     ],
     'summary' => false,
-    'itemView' => 'catalogo-item',
+    'itemView' => 'dashboard_list',
 ]);
 ?>

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 use yii\helpers\Html;
 /*
@@ -26,4 +26,4 @@ echo '</pre>';
 </div>
 <?/*php echo '<pre>';
                             var_dump($model->img_url);
-                            echo '</pre>'; */ ?>
+                            echo '</pre>'; */ ?> -->

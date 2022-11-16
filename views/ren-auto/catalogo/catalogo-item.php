@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 
+
 $contenido = <<< HTML
 <div class="content-auto">
         <div class="info-auto">
-            <img src="{$model->Imagen}" alt="Imagen auto">
+            <img src= {$model->Imagen}>
+            
             <div class="text">
                 <h2>{$model->modNombre}  {$model->anio}</h2>
                 <span>{$model->aut_precio} x día</span>

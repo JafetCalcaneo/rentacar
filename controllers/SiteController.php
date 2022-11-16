@@ -54,23 +54,29 @@ class SiteController extends Controller
     public function actionIndex()
     {
         if (Yii::$app->user->isSuperAdmin) {
-        return $this->render('admin/index-item');
-        } else {
-        $servicios = new ActiveDataProvider([
-            'query' => CatImagenauto::find()->where(['img_seccion' => 'Servicios', 'img_estatus' => '1']),
-            'pagination' => false,
-        ]);
-        $buscados = new ActiveDataProvider([
-            'query' => CatImagenauto::find()->where(['img_seccion' => 'Masrentados', 'img_estatus' => '1']),
-            'pagination' => false,
-        ]);
+            $img_dashboard = new ActiveDataProvider([
+                'query' => CatImagenauto::find()->where(['img_seccion' => 'Dashboard',]),
+                'pagination' => false,
+            ]);
+            return $this->render('admin/index', compact('img_dashboard'));
 
-        $banners = RenBanner::find()->All();
-        $items = [];
-        foreach ($banners as $ban => $banner) {
-            $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
-        }
-        return $this->render('index', compact('items', 'servicios', 'buscados'));
+        } else {
+            $servicios = new ActiveDataProvider([
+                'query' => CatImagenauto::find()->where(['img_seccion' => 'Servicios', 'img_estatus' => '1']),
+                'pagination' => false,
+            ]);
+            $buscados = new ActiveDataProvider([
+                'query' => CatImagenauto::find()->where(['img_seccion' => 'Masrentados', 'img_estatus' => '1']),
+                'pagination' => false,
+            ]);
+
+            $banners = RenBanner::find()->All();
+            $items = [];
+            foreach ($banners as $ban => $banner) {
+                $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
+            }
+
+            return $this->render('cliente/index', compact('items', 'servicios', 'buscados'));
         }
     }
 
