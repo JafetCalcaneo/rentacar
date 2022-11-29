@@ -122,4 +122,8 @@ class RenModelo extends \yii\db\ActiveRecord
     public function getTransmision(){
         return $this->modFktransmision->tra_nombre;
     }
+
+    public function getCarroceria(){
+        return $this->modFkcarroceria->car_nombre;
+    }
 }

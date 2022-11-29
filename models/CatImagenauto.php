@@ -91,4 +91,8 @@ class CatImagenauto extends \yii\db\ActiveRecord
     {
         return $this->hasMany(RenAuto::class, ['aut_fkimagen' => 'img_id']);
     }
+
+    
+
+
 }

@@ -30,6 +30,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
+        'js/renta.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

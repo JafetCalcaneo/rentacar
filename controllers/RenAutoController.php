@@ -3,9 +3,12 @@
 namespace app\controllers;
 
 use app\models\CatImagenauto;
+use app\models\CatMetodopago;
 use app\models\RenAuto;
 use app\models\RenModelo;
 use app\models\RenAutoSearch;
+use app\models\RenCliente;
+use app\models\RenRenta;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -136,13 +139,36 @@ class RenAutoController extends Controller
     //----------------------VISTA DETALLADA DEL AUTO----------------------
     public function actionAutoView($id = 0)
     {
-        $query = RenAuto::find()->where(['aut_id' => $id]);
-        $auto = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => false,
-        ]);
-        return $this->render('auto/imagenes_list', compact('auto'));
+        $auto = $this->findModel($id);
+        
+        $renta = new RenRenta();
+
+        if ($this->request->isPost) {
+            if ($renta->load(Yii::$app->request->post())) {
+
+                $renta->ren_fechaPago = $renta->ren_fechaInicio;
+                $renta->ren_fechaEntregado = $renta->ren_fechaFinal; 
+                $cliente = RenCliente::findOne(['cli_fkuser' => Yii::$app->user->id]);
+                $renta->ren_fkcliente = $cliente->cli_id;          
+                if ($renta->save()) {
+                    return 'Gracias';
+                }
+                echo '<pre>';
+                var_dump($renta->ren_fkcliente);
+                var_dump($renta->errors);
+                echo '</pre>';
+            }
+        } else {
+            $renta->loadDefaultValues();
+        }
+
+        //----Mando instancia de modelo Renta-----
+        // $renta = new RenRenta();
+        return $this->render('auto/auto-view', compact('auto', 'renta'));
     }
+
+
+
 
     //----------------------VISTA CATALOGO DE AUTOS----------------------
 

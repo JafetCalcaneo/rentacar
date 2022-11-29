@@ -4,6 +4,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 use yii\helpers\Html;
+use app\widgets\DarkMode;
 
 NavBar::begin([
     'brandLabel' => Yii::$app->name,
@@ -13,6 +14,11 @@ NavBar::begin([
 $default = Yii::$app->session->get('language', 'en-US');
 $language = $default == 'en-US' ? 'es-INGLES' : 'en-US';
 $bandera = Yii::$app->params['languages'][$language];
+//Icono modo oscuro
+$modo = $default == 'lunaBlanca' ? 'lunaNegra' : 'lunaBlanca';
+$luna = Yii::$app->params['iconoLuna'][$modo];
+$isDark = Yii::$app->params['isDark'];
+$imagen = '/img/iconos/lunaBlanca.png';
 
 echo Nav::widget([
     'encodeLabels' => false,
@@ -42,9 +48,15 @@ echo Nav::widget([
                 ['class' => 'nav-link btn btn-link logout']
             )
             . Html::endForm()
-            . '</li>'
+            . '</li>',
+        
+            DarkMode::widget([
+                'imagen' => $imagen,
+                'clases' => 'isDark'
+            ])
     ],
 
 
 ]);
 NavBar::end();
+

@@ -137,6 +137,10 @@ class RenAuto extends \yii\db\ActiveRecord
         return $this->autFkmodelo->transmision;
     }
 
+    public function getCarroceria(){
+        return $this->autFkmodelo->carroceria;
+    }
+
     //---------------LLAMADAS A TABLA IMAGENES---------------------------
     public function getHref(){
         return $this->autFkimagen->img_href;

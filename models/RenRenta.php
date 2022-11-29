@@ -38,7 +38,7 @@ class RenRenta extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ren_fechaPago', 'ren_fechaInicio', 'ren_fechaFinal', 'ren_fechaEntregado','ren_monto', 'ren_promocion', 'ren_fkmetodoPago', 'ren_fkcliente', 'ren_fkauto'], 'required'],
+            [['ren_fechaPago', 'ren_fechaFinal', 'ren_fechaEntregado','ren_monto', 'ren_fkmetodoPago', 'ren_fkcliente', 'ren_fkauto'], 'required'],
             [['ren_fechaPago', 'ren_fechaInicio', 'ren_fechaFinal', 'ren_fechaEntregado'], 'safe'],
             [['ren_monto'], 'number'],
             [['ren_promocion', 'ren_fkmetodoPago', 'ren_fkcliente', 'ren_fkauto'], 'integer'],

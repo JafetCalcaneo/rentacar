@@ -21,14 +21,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link rel="shortcut icon" href="../../web/img/coche.png" />
+    <link rel="shortcut icon" href="@web/img/coche.png" />
 </head>
 
-<body class="d-flex flex-column h-100">
-    <?php $this->beginBody() ?>
+<body class="index-body">
+    
+
+    <!-- <?php $this->beginBody() ?> -->
     <header id="header">
         <?= $this->render('navbar') ?>
     </header>
@@ -46,8 +49,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
         <?= $this->render('footer') ?>
     </footer>
 
+    <!-- <?php $this->endBody() ?> -->
+    </body>
 
-    <?php $this->endBody() ?>
-</body>
 </html>
 <?php $this->endPage() ?>

@@ -14,6 +14,8 @@ use app\models\CatImagenauto;
 use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 use kartik\mpdf\Pdf;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
 
 
 class SiteController extends Controller
@@ -69,14 +71,19 @@ class SiteController extends Controller
                 'query' => CatImagenauto::find()->where(['img_seccion' => 'Masrentados', 'img_estatus' => '1']),
                 'pagination' => false,
             ]);
+            
+            $banner = CatImagenauto::find()->where(['img_seccion' => 'Banner'])->limit(1)->one();
+            $url = $banner->img_url;
+            
 
-            $banners = RenBanner::find()->All();
-            $items = [];
-            foreach ($banners as $ban => $banner) {
-                $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
-            }
 
-            return $this->render('cliente/index', compact('items', 'servicios', 'buscados'));
+            // $banners = RenBanner::find()->All();
+            // $items = [];
+            // foreach ($banners as $ban => $banner) {
+            //     $items[] = Html::img($banner->ban_url, ['width' => '1600px', 'height' => '530px']);
+            // }
+
+            return $this->render('cliente/index',compact('url', 'servicios', 'buscados'));
         }
     }
 

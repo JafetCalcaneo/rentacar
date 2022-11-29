@@ -11,4 +11,9 @@ return [
         'en-US' => '<img src="/img/mex.png" width="20px">',
     ],
     'bsVersion' => '5.x',
+    'iconoLuna' => [
+        'lunaBlanca' => '<img src="/img/iconos/lunaBlanca.png" width="25px" style="margin-left:750px">',
+        'lunaNegra' => '<img src="/img/iconos/lunaNegra.png" width="25px" style="margin-left:750px">',
+    ],
+    'isDark' => false,
 ];
