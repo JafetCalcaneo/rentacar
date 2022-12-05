@@ -31,6 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'img_id',
             'img_url:url',
+            'img_titulo',
+            'img_descripcion',
+            'img_seccion',
+            'img_estatus',
+            'img_href',
             'img_fkauto',
         ],
     ]) ?>

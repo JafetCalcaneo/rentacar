@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\RenAuto;
-use app\models\RenAutoSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\RenAutoSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * RenAutoController implements the CRUD actions for RenAuto model.
@@ -18,17 +19,11 @@ class RenAutoController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
+use Yii;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
 use app\models\RenPromocion;
 use app\models\RenPromocionSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * RenPromocionController implements the CRUD actions for RenPromocion model.
@@ -18,17 +19,11 @@ class RenPromocionController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

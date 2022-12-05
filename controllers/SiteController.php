@@ -3,12 +3,15 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\web\Controller;
+use kartik\mpdf\Pdf;
 use yii\web\Response;
-use yii\filters\VerbFilter;
+use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use app\models\DashboardSearch;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
@@ -18,22 +21,8 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
             ],
         ];
     }
@@ -61,7 +50,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new DashboardSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index', compact('searchModel', 'dataProvider'));
     }
 
     /**
@@ -126,9 +118,51 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionLanguage(){
+    public function actionLanguage()
+    {
         Yii::$app->session->set('language', $_REQUEST['language']);
         header('location: ' . $_SERVER['HTTP_REFERER']);
         exit();
-}
+    }
+
+    public function actionAutos()
+    {
+
+        return $this->render('autos');
+    }
+
+    public function actionReporte()
+    {
+        // get your HTML raw content without any layouts or scripts
+        $content = $this->renderPartial('reporte', ['titulo' => 'PDF DE PRUEBA']);
+
+        // setup kartik\mpdf\Pdf component
+        $pdf = new Pdf([
+            // set to use core fonts only
+            'mode' => Pdf::MODE_CORE,
+            // A4 paper format
+            'format' => Pdf::FORMAT_A4,
+            // portrait orientation
+            'orientation' => Pdf::ORIENT_PORTRAIT,
+            // stream to browser inline
+            'destination' => Pdf::DEST_BROWSER,
+            // your html content input
+            'content' => $content,
+            // format content from your own css file if needed or use the
+            // enhanced bootstrap css built by Krajee for mPDF formatting 
+            'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',
+            // any css to be embedded if required
+            'cssInline' => '.kv-heading-1{font-size:18px}',
+            // set mPDF properties on the fly
+            //'options' => ['title' => 'Krajee Report Title'],
+            // call mPDF methods on the fly
+            'methods' => [
+                'SetHeader' => ['LISTA DE CLIENTES'],
+                'SetFooter' => ['{PAGENO}'],
+            ]
+        ]);
+
+        // return the pdf output as per the destination setting
+        return $pdf->render();
+    }
 }

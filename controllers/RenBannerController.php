@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\RenBanner;
-use app\models\RenBannerSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\models\RenBanner;
 use yii\filters\VerbFilter;
+use app\models\RenBannerSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * RenBannerController implements the CRUD actions for RenBanner model.
@@ -18,17 +19,11 @@ class RenBannerController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

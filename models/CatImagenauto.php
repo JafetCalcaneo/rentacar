@@ -8,8 +8,13 @@ use Yii;
  * This is the model class for table "cat_imagenauto".
  *
  * @property int $img_id Id
- * @property string|null $img_url Url
- * @property int|null $img_fkauto Auto
+ * @property string $img_url Url
+ * @property string $img_titulo Titulo
+ * @property string $img_descripcion Descripción
+ * @property string $img_seccion Sección
+ * @property string $img_estatus Estatus
+ * @property string $img_href Href
+ * @property int $img_fkauto Auto
  *
  * @property RenAuto[] $renAutos
  */
@@ -29,8 +34,9 @@ class CatImagenauto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['img_url', 'img_titulo', 'img_descripcion', 'img_seccion', 'img_estatus', 'img_href', 'img_fkauto'], 'required'],
             [['img_fkauto'], 'integer'],
-            [['img_url'], 'string', 'max' => 255],
+            [['img_url', 'img_titulo', 'img_descripcion', 'img_seccion', 'img_estatus', 'img_href'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,8 +46,13 @@ class CatImagenauto extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'img_id'     => Yii::t('app', 'Id'),
-            'img_url'    => Yii::t('app', 'Url'),
+            'img_id' => Yii::t('app', 'Id'),
+            'img_url' => Yii::t('app', 'Url'),
+            'img_titulo' => Yii::t('app', 'Titulo'),
+            'img_descripcion' => Yii::t('app', 'Descripción'),
+            'img_seccion' => Yii::t('app', 'Sección'),
+            'img_estatus' => Yii::t('app', 'Estatus'),
+            'img_href' => Yii::t('app', 'Href'),
             'img_fkauto' => Yii::t('app', 'Auto'),
         ];
     }

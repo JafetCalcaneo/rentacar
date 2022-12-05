@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
+use Yii;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
 use app\models\CatMetodopago;
 use app\models\CatMetodopagoSerch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * CatMetodopagoController implements the CRUD actions for CatMetodopago model.
@@ -17,19 +18,13 @@ class CatMetodopagoController extends Controller
      * @inheritDoc
      */
     public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
+{
+	return [
+		'ghost-access'=> [
+			'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+		],
+	];
+}
 
     /**
      * Lists all CatMetodopago models.

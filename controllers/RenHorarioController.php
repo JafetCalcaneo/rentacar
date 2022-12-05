@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\RenHorario;
-use app\models\RenHorarioSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\models\RenHorario;
 use yii\filters\VerbFilter;
+use app\models\RenHorarioSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * RenHorarioController implements the CRUD actions for RenHorario model.
@@ -18,17 +19,11 @@ class RenHorarioController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

@@ -51,6 +51,7 @@ class RenCliente extends \yii\db\ActiveRecord
             'cli_materno'         => Yii::t('app', 'Materno'),
             'cli_telefono'        => Yii::t('app', 'Teléfono'),
             'cli_fechaNacimiento' => Yii::t('app', 'Fecha de Nacimiento'),
+            'nombre'              => Yii::t('app', 'Nombre completo'),
         ];
     }
 
@@ -62,5 +63,10 @@ class RenCliente extends \yii\db\ActiveRecord
     public function getRenRentas()
     {
         return $this->hasMany(RenRenta::className(), ['ren_fkcliente' => 'cli_id']);
+    }
+
+    public function getNombre()
+    {
+        return "{$this->cli_nombre} {$this->cli_paterno} {$this->cli_materno}";
     }
 }

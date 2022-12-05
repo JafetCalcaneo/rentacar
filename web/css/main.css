@@ -1,0 +1,71 @@
+.bg-navbar {
+    background-color: #8fabdd !important;
+}
+
+.btn-opciones {
+    background-color: #8fabdd;
+    border-color: #8fabdd;
+}
+
+.no-drop {
+    cursor: no-drop;
+}
+
+/*PULSO PARA EL WIDGET*/
+
+.pulse {
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    background: #757575;
+    animation: pulse 1500ms infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #757575;
+    }
+
+    100% {
+        box-shadow: 0 0 0 17px #fbb32f01;
+    }
+}
+
+.contenedor {
+    width: 90px;
+    height: 240px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    z-index: 9999999;
+}
+
+.botonF1 {
+    width: 130px;
+    height: 45px;
+    border-radius: 8px;
+    background: #000;
+    right: 0;
+    bottom: 0;
+    /* position: absolute;
+    margin-right: 16px;
+    margin-bottom: 16px; */
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: .3s;
+}
+
+span {
+    transition: .5s;
+}
+
+.botonF1:hover span {
+    transform: rotate(360deg);
+}
+
+.botonF1:active {
+    transform: scale(1.4);
+}

@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\RenModelo;
-use app\models\RenModeloSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\models\RenModelo;
 use yii\filters\VerbFilter;
+use app\models\RenModeloSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * RenModeloController implements the CRUD actions for RenModelo model.
@@ -17,19 +18,13 @@ class RenModeloController extends Controller
      * @inheritDoc
      */
     public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
+{
+	return [
+		'ghost-access'=> [
+			'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+		],
+	];
+}
 
     /**
      * Lists all RenModelo models.

@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\CatImagenauto;
-use app\models\CatImagenautoSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\CatImagenauto;
+use yii\web\NotFoundHttpException;
+use app\models\CatImagenautoSearch;
 
 /**
  * CatImagenautoController implements the CRUD actions for CatImagenauto model.
@@ -18,17 +19,11 @@ class CatImagenautoController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\CatCarroceria;
-use app\models\CatCarroceriaSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\CatCarroceria;
+use yii\web\NotFoundHttpException;
+use app\models\CatCarroceriaSearch;
 
 /**
  * CatCarroceriaController implements the CRUD actions for CatCarroceria model.
@@ -18,17 +19,11 @@ class CatCarroceriaController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\CatTransmision;
-use app\models\CatTransmisionSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\CatTransmision;
+use yii\web\NotFoundHttpException;
+use app\models\CatTransmisionSearch;
 
 /**
  * CatTransmisionController implements the CRUD actions for CatTransmision model.
@@ -18,17 +19,11 @@ class CatTransmisionController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

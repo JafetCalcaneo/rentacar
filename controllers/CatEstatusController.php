@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\CatEstatus;
-use app\models\CatEstatusSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\models\CatEstatus;
 use yii\filters\VerbFilter;
+use app\models\CatEstatusSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * CatEstatusController implements the CRUD actions for CatEstatus model.
@@ -18,17 +19,11 @@ class CatEstatusController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

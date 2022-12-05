@@ -9,6 +9,6 @@ return [
         'es-ITALIANO' => '<img src="/img/es-ITALIANO.png" width="20px">',
         'es-CHINO' => '<img src="/img/es-CHINO.png" width="20px">',
         'en-US' => '<img src="/img/mex.png" width="20px">',
-        
-        ],
+
+    ],
 ];

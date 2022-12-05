@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\models\CatMarca;
-use app\models\CatMarcaSearch;
+use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\models\CatMarca;
 use yii\filters\VerbFilter;
+use app\models\CatMarcaSearch;
+use yii\web\NotFoundHttpException;
 
 /**
  * CatMarcaController implements the CRUD actions for CatMarca model.
@@ -18,17 +19,11 @@ class CatMarcaController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
     }
 
     /**

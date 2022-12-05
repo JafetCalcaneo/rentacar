@@ -31,7 +31,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => '@w
 
 <header id="header">    
     <?= $this->render('navbar') ?> 
-    
 </header>
 
 <main id="main" class="flex-shrink-0" role="main">
